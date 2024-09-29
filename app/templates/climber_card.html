@@ -1,0 +1,59 @@
+{% load static %}
+
+
+{% if "http://localhost:8000/expeditions/" in request.build_absolute_uri %}
+
+    <div class="card w-100 mb5">
+         <div class="row g-0">
+            <div class="col-md-6 d-flex justify-center">
+                <img src="{{ climber.image }}"  >
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">{{ climber.name }} </h5>
+                    <p class="card-text">Покорил: {{ climber.peak }}</p>
+                    <div class="form-group">
+                        <label class="form-label">Количество восхождений</label>
+                        <input disabled type="number" class="form-control" style="width: 150px" value={{ climber.count }}>
+                    </div>
+                    <a href="/climbers/{{ climber.id }}/" class="btn btn-primary" style="width: 100px">
+                        Открыть
+                    </a>
+                </div>
+            </div>
+         </div>
+    </div>
+
+{% else %}
+
+    <div class="card">
+
+        <img src="{{ climber.image }}" class="climber-preview" alt=""/>
+
+        <div class="card-body" >
+
+            <div class="card-info">
+
+                <h5 class="card-title">{{ climber.name }}</h5>
+
+                <p class="card-text">Покорил: {{ climber.peak }}</p>
+
+            </div>
+
+            <div class="card-btns">
+
+                <a href="/climbers/{{ climber.id }}/" class="btn btn-primary center">
+                    Открыть
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endif %}
+
+
+
+

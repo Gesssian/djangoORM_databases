@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container">
+
+        <h3  class="text-center">Черновая экспедиция</h3>
+
+        <h4 class="text-center">Альпинисты</h4>
+
+        <div class="cards-wrapper d-flex flex-column">
+
+            {% for climber in climbers %}
+
+                {% include "climber_card.html" %}
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+{% endblock content %}
